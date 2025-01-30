@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'image',
+        'status',
+        'country',
+        'city',
+        'street',
+        'phone',
     ];
 
     /**
@@ -42,4 +49,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function posts(){
+        return $this->hasMany(Post::class,'user_id');
+    }
 }
